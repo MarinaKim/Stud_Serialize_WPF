@@ -1,0 +1,38 @@
+﻿<Window x:Class="StudApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>       
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+        
+        <ListView x:Name="lvGroup" Grid.Column="0"
+                  SelectionChanged="lvGroup_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Groups" DisplayMemberBinding="{Binding Path=groupName}"/>
+                        <GridViewColumn Header="Count" DisplayMemberBinding="{Binding Path=countOfStud}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>            
+        </ListView>
+        
+            <ListView x:Name="lvStud" Grid.Column="1">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="id" DisplayMemberBinding="{Binding Path=studId}"/>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=studName}"/>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
